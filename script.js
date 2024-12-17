@@ -1,44 +1,44 @@
-// 获取矩形和容器元素
+
 const rectangles = document.querySelectorAll('.rectangle');
 
-// 加载 `1.html` 文件内容
+
 async function loadHtmlContent() {
-    const response = await fetch('1.html'); // 确保路径正确
+    const response = await fetch('1.html'); 
     const text = await response.text();
     const parser = new DOMParser();
     const doc = parser.parseFromString(text, 'text/html');
-    return doc.body; // 返回解析后的 HTML Body
+    return doc.body;
 }
 
-// 加载 `2.html` 文件内容
+
 async function loadHtmlContent() {
-    const response = await fetch('2.html'); // 确保路径正确
+    const response = await fetch('2.html');
     const text = await response.text();
     const parser = new DOMParser();
     const doc = parser.parseFromString(text, 'text/html');
-    return doc.body; // 返回解析后的 HTML Body
+    return doc.body; 
 }
 
-// 加载 `3.html` 文件内容
+
 async function loadHtmlContent() {
-    const response = await fetch('2.html'); // 确保路径正确
+    const response = await fetch('2.html');
     const text = await response.text();
     const parser = new DOMParser();
     const doc = parser.parseFromString(text, 'text/html');
-    return doc.body; // 返回解析后的 HTML Body
+    return doc.body; 
 }
 
-// 加载 `4.html` 文件内容
+
 async function loadHtmlContent() {
-    const response = await fetch('2.html'); // 确保路径正确
+    const response = await fetch('2.html'); 
     const text = await response.text();
     const parser = new DOMParser();
     const doc = parser.parseFromString(text, 'text/html');
-    return doc.body; // 返回解析后的 HTML Body
+    return doc.body; 
 }
 
 
-// 从 dataFlow.csv 文件加载数据
+
 async function loadFlowData() {
     const response = await fetch('dataFlow.csv');
     const text = await response.text();
@@ -47,18 +47,18 @@ async function loadFlowData() {
         .map(row => row.split(','))
         .filter(row => row.length >= 7);
 
-    // 提取 Total_Flow_Population 和 M_per 数据
+
     const flowData = data.map(row => ({
-        population: parseFloat(row[2].trim()),        // Total_Flow_Population
-        male: parseInt(row[3].trim()),               // Male
-        malePercentage: parseFloat(row[4].trim()),   // M_per
-        female: parseInt(row[5].trim()),             // Female
-        femalePercentage: parseFloat(row[6].trim())  // F_per
+        population: parseFloat(row[2].trim()),       
+        male: parseInt(row[3].trim()),            
+        malePercentage: parseFloat(row[4].trim()),  
+        female: parseInt(row[5].trim()),            
+        femalePercentage: parseFloat(row[6].trim())  
     }));
     return flowData;
 }
 
-// 从 dataLmt.csv 文件加载数据
+ 
 async function loadLmtData() {
     const response = await fetch('dataLmt.csv');
     const text = await response.text();
@@ -67,7 +67,7 @@ async function loadLmtData() {
         .map(row => row.split(','))
         .filter(row => row.length >= 8);
 
-    // 提取百分比数据
+ 
     const lmtData = data.map(row => ({
         lyPercent: parseFloat(row[2].trim()),
         lnPercent: parseFloat(row[4].trim()),
@@ -77,42 +77,42 @@ async function loadLmtData() {
     return lmtData;
 }
 
-// 初始化矩形
+ 
 async function initializeRectangles() {
     const flowData = await loadFlowData();
     const lmtData = await loadLmtData();
-    const htmlContent = await loadHtmlContent(); // 加载 `1.html` 内容
+    const htmlContent = await loadHtmlContent(); 
 
 
-    // 初始化：设置默认所有伪元素可见
+ 
     let isRectangleClicked = false;
 
     rectangles.forEach((rect, index) => {
         rect.addEventListener('click', () => {
-            // 检查是否是重复点击
+ 
             const alreadyClicked = rect.classList.contains('active');
     
-            // 先清除所有矩形的 "active" 状态和隐藏伪元素
+ 
             rectangles.forEach(r => {
                 r.classList.remove('active');
                 r.classList.remove('hide-month');
             });
     
             if (!alreadyClicked) {
-                // 标记当前矩形为 "active"
+ 
                 rect.classList.add('active');
     
-                // 隐藏其他矩形的伪元素
+ 
                 rectangles.forEach((r, idx) => {
                     if (idx !== index) {
                         r.classList.add('hide-month');
                     }
                 });
     
-                // 标记矩形点击状态为 `true`
+ 
                 isRectangleClicked = true;
             } else {
-                // 如果是重复点击，重置状态
+ 
                 isRectangleClicked = false;
             }
         });
@@ -122,9 +122,9 @@ async function initializeRectangles() {
     rectangles.forEach((rect, index) => {
         const flow = flowData[index] || {};
         const lmt = lmtData[index] || {};
-        // 确保每个矩形正确关联到 `1.html` 的 Pie Chart
-        const contentId = `chart${index + 1}`; // 假设每个 Pie Chart 的 `id` 为 chart1, chart2, ..., chart10
-        const malePercentage = flow.malePercentage / 100; // 将百分比转换为 0-1 的小数
+ 
+        const contentId = `chart${index + 1}`; 
+        const malePercentage = flow.malePercentage / 100; 
         const femalePercentage = flow.femalePercentage / 100;
 
 
@@ -148,10 +148,10 @@ async function initializeRectangles() {
                     const redHeight = dotBottom + 5 - blueHeight;
 
                     r.classList.add('dynamic-content');
-                    r.style.width = '440px'; // Adjust width to accommodate the charts on the right
+                    r.style.width = '440px'; 
                     r.innerHTML = '';
 
-                    // Render Blue Rectangle    
+ 
                     const blueRect = document.createElement('div');
                     blueRect.style.position = 'absolute';
                     blueRect.style.bottom = '0';
@@ -160,20 +160,20 @@ async function initializeRectangles() {
                     blueRect.style.height = `${blueHeight}px`;
                     blueRect.style.backgroundColor = 'lightgrey';
 
-                    // Add text inside the blue rectangle
+ 
                     const blueText = document.createElement('div');
                     blueText.innerHTML = `Men<br>${flow.male} (${flow.malePercentage.toFixed(2)}%)`;
                     blueText.style.position = 'absolute';
                     blueText.style.top = '50%';
                     blueText.style.left = '50%';
-                    blueText.style.transform = 'translate(-50%, -50%)'; // Center the text
-                    blueText.style.color = 'white'; // Text color
+                    blueText.style.transform = 'translate(-50%, -50%)';
+                    blueText.style.color = 'white'; 
                     blueText.style.fontSize = '14px';
                     blueText.style.fontWeight = 'bold';
                     blueText.style.textAlign = 'center';
                     blueRect.appendChild(blueText);
 
-                    // Render Red Rectangle   
+ 
                     const redRect = document.createElement('div');
                     redRect.style.position = 'absolute';
                     redRect.style.bottom = `${blueHeight}px`;
@@ -182,26 +182,26 @@ async function initializeRectangles() {
                     redRect.style.height = `${redHeight}px`;
                     redRect.style.backgroundColor = 'grey';
 
-                    // Add text inside the red rectangle
+ 
                     const redText = document.createElement('div');
                     redText.innerHTML = `Women<br>${flow.female} (${flow.femalePercentage.toFixed(2)}%)`;
                     redText.style.position = 'absolute';
                     redText.style.top = '50%';
                     redText.style.left = '50%';
-                    redText.style.transform = 'translate(-50%, -50%)'; // Center the text
-                    redText.style.color = 'white'; // Text color
+                    redText.style.transform = 'translate(-50%, -50%)'; 
+                    redText.style.color = 'white'; 
                     redText.style.fontSize = '14px';
                     redText.style.fontWeight = 'bold';
                     redText.style.textAlign = 'center';
                     redRect.appendChild(redText);
 
-                    // Append rectangles
+ 
                     r.appendChild(blueRect);
                     r.appendChild(redRect);
 
 
 
-                    // Create a container for the two main containers
+ 
                     const mainContainer = document.createElement('div');
                     mainContainer.style.position = 'absolute';
                     mainContainer.style.right = '10px';
@@ -209,20 +209,20 @@ async function initializeRectangles() {
                     mainContainer.style.transform = 'translateY(-50%)';
                     mainContainer.style.display = 'flex';
                     mainContainer.style.flexDirection = 'column';
-                    mainContainer.style.gap = '20px'; // Space between top and bottom containers
+                    mainContainer.style.gap = '20px';
 
-                    // Add Circle (new feature)
+ 
                     const circle = document.createElement('div');
-                    circle.style.width = '200px'; // Diameter = 2 * radius
-                    circle.style.height = '250px'; // Diameter = 2 * radius
+                    circle.style.width = '200px'; 
+                    circle.style.height = '250px'; 
                     circle.style.backgroundColor = 'none';
-                    circle.style.margin = '0 auto'; // Center horizontally
-                    circle.style.marginBottom = '-10px'; // Add spacing below
+                    circle.style.margin = '0 auto'; 
+                    circle.style.marginBottom = '-10px'; 
                     circle.classList.add('circle');
                     
                     mainContainer.appendChild(circle);
 
-                    // Create top container with title
+ 
                     const topContainer = document.createElement('div');
                     topContainer.style.display = 'flex';
                     topContainer.style.flexDirection = 'column';
@@ -264,7 +264,7 @@ async function initializeRectangles() {
 
                         rectangle.appendChild(text);
 
-                        // **Add hover effect for lightblue rectangle**
+ 
                         if (shape.color === '#C1272D') {
                             rectangle.addEventListener('mouseenter', () => {
                                 const circle = document.querySelector('.circle');
@@ -274,34 +274,34 @@ async function initializeRectangles() {
                                     return;
                                 }
 
-                                // 清空 circle 内容
+ 
                                 circle.innerHTML = '';
 
-                                // 创建 iframe 加载 HTML 文件
+ 
                                 const iframe = document.createElement('iframe');
-                                iframe.src = `1.html#${contentId}`; // 使用锚点加载特定内容块
-                                iframe.style.width = '220px'; // 设置 iframe 宽度
-                                iframe.style.height = '220px'; // 设置 iframe 高度
-                                iframe.style.border = 'none'; // 移除 iframe 边框
+                                iframe.src = `1.html#${contentId}`; 
+                                iframe.style.width = '220px';
+                                iframe.style.height = '220px';
+                                iframe.style.border = 'none';
                                 iframe.style.overflow = 'hidden';
                                 iframe.scrolling = 'no';
 
-                                // 添加 iframe 到 circle
+ 
                                 circle.appendChild(iframe);
 
-                                // 确保 circle 的样式支持居中
-                                circle.style.display = 'flex'; // 使用 flexbox 布局
-                                circle.style.justifyContent = 'center'; // 水平居中
-                                circle.style.alignItems = 'center'; // 垂直居中
+ 
+                                circle.style.display = 'flex'; 
+                                circle.style.justifyContent = 'center'; 
+                                circle.style.alignItems = 'center'; 
                             });
 
                             rectangle.addEventListener('mouseleave', () => {
-                                // 不立即清空内容，设置一个标志等待鼠标进入其他区域
+ 
                                 rectangle.classList.add('waiting-clear');
                             });
                         }
 
-                        // **Add hover effect for lightgrey rectangle**                        
+ 
                         if (shape.color === 'lightgrey') {
                             rectangle.addEventListener('mouseenter', () => {
                                 const circle = document.querySelector('.circle');
@@ -311,31 +311,31 @@ async function initializeRectangles() {
                                     return;
                                 }
 
-                                // 清空 circle 内容
+ 
                                 circle.innerHTML = '';
 
-                                // 创建 iframe 加载 HTML 文件
+ 
                                 const iframe = document.createElement('iframe');
-                                iframe.src = `2.html#${contentId}`; // 使用锚点加载特定内容块
-                                iframe.style.width = '220px'; // 设置 iframe 宽度
-                                iframe.style.height = '220px'; // 设置 iframe 高度
-                                iframe.style.border = 'none'; // 移除 iframe 边框
+                                iframe.src = `2.html#${contentId}`; 
+                                iframe.style.width = '220px'; 
+                                iframe.style.height = '220px';
+                                iframe.style.border = 'none'; 
                                 iframe.style.overflow = 'hidden';
                                 iframe.scrolling = 'no';
 
-                                // 添加 iframe 到 circle
+ 
                                 circle.appendChild(iframe);
 
-                                // 确保 circle 的样式支持居中
-                                circle.style.display = 'flex'; // 使用 flexbox 布局
-                                circle.style.justifyContent = 'center'; // 水平居中
-                                circle.style.alignItems = 'center'; // 垂直居中
+ 
+                                circle.style.display = 'flex'; 
+                                circle.style.justifyContent = 'center'; 
+                                circle.style.alignItems = 'center';
                             });
 
                             
 
                             rectangle.addEventListener('mouseleave', () => {
-                                // 不立即清空内容，设置一个标志等待鼠标进入其他区域
+ 
                                 rectangle.classList.add('waiting-clear');
                             });
                         }
@@ -345,7 +345,7 @@ async function initializeRectangles() {
 
                     topContainer.appendChild(topRow);
 
-                    // Create bottom container with title
+ 
                     const bottomContainer = document.createElement('div');
                     bottomContainer.style.display = 'flex';
                     bottomContainer.style.flexDirection = 'column';
@@ -386,7 +386,7 @@ async function initializeRectangles() {
 
                         rectangle.appendChild(text);
 
-                        // **Add hover effect for #C1272D rectangle**
+ 
                         if (shape.color === '#C1272D') {
                             rectangle.addEventListener('mouseenter', () => {
                                 const circle = document.querySelector('.circle');
@@ -396,34 +396,34 @@ async function initializeRectangles() {
                                     return;
                                 }
 
-                                // 清空 circle 内容
+ 
                                 circle.innerHTML = '';
 
-                                // 创建 iframe 加载 HTML 文件
+ 
                                 const iframe = document.createElement('iframe');
-                                iframe.src = `3.html#${contentId}`; // 使用锚点加载特定内容块
-                                iframe.style.width = '220px'; // 设置 iframe 宽度
-                                iframe.style.height = '220px'; // 设置 iframe 高度
-                                iframe.style.border = 'none'; // 移除 iframe 边框
+                                iframe.src = `3.html#${contentId}`; 
+                                iframe.style.width = '220px'; 
+                                iframe.style.height = '220px'; 
+                                iframe.style.border = 'none'; 
                                 iframe.style.overflow = 'hidden';
                                 iframe.scrolling = 'no';
 
-                                // 添加 iframe 到 circle
+ 
                                 circle.appendChild(iframe);
 
-                                // 确保 circle 的样式支持居中
-                                circle.style.display = 'flex'; // 使用 flexbox 布局
-                                circle.style.justifyContent = 'center'; // 水平居中
-                                circle.style.alignItems = 'center'; // 垂直居中
+ 
+                                circle.style.display = 'flex'; 
+                                circle.style.justifyContent = 'center'; 
+                                circle.style.alignItems = 'center'; 
                             });
 
                             rectangle.addEventListener('mouseleave', () => {
-                                // 不立即清空内容，设置一个标志等待鼠标进入其他区域
+ 
                                 rectangle.classList.add('waiting-clear');
                             });
                         }
 
-                        // **Add hover effect for lightgrey rectangle**                        
+ 
                         if (shape.color === 'lightgrey') {
                             rectangle.addEventListener('mouseenter', () => {
                                 const circle = document.querySelector('.circle');
@@ -433,31 +433,31 @@ async function initializeRectangles() {
                                     return;
                                 }
 
-                                // 清空 circle 内容
+ 
                                 circle.innerHTML = '';
 
-                                // 创建 iframe 加载 HTML 文件
+ 
                                 const iframe = document.createElement('iframe');
-                                iframe.src = `4.html#${contentId}`; // 使用锚点加载特定内容块
-                                iframe.style.width = '220px'; // 设置 iframe 宽度
-                                iframe.style.height = '220px'; // 设置 iframe 高度
-                                iframe.style.border = 'none'; // 移除 iframe 边框
+                                iframe.src = `4.html#${contentId}`;
+                                iframe.style.width = '220px'; 
+                                iframe.style.height = '220px'; 
+                                iframe.style.border = 'none'; 
                                 iframe.style.overflow = 'hidden';
                                 iframe.scrolling = 'no';
 
-                                // 添加 iframe 到 circle
+ 
                                 circle.appendChild(iframe);
 
-                                // 确保 circle 的样式支持居中
-                                circle.style.display = 'flex'; // 使用 flexbox 布局
-                                circle.style.justifyContent = 'center'; // 水平居中
-                                circle.style.alignItems = 'center'; // 垂直居中
+ 
+                                circle.style.display = 'flex'; 
+                                circle.style.justifyContent = 'center';
+                                circle.style.alignItems = 'center'; 
                             });
 
                             
 
                             rectangle.addEventListener('mouseleave', () => {
-                                // 不立即清空内容，设置一个标志等待鼠标进入其他区域
+ 
                                 rectangle.classList.add('waiting-clear');
                             });
                         }
@@ -469,11 +469,11 @@ async function initializeRectangles() {
 
                     bottomContainer.appendChild(bottomRow);
 
-                    // Append top and bottom containers to the main container
+ 
                     mainContainer.appendChild(topContainer);
                     mainContainer.appendChild(bottomContainer);
 
-                    // Append main container to the rectangle
+ 
                     r.appendChild(mainContainer);
                 } else {
                     r.style.width = '40px';
@@ -493,8 +493,8 @@ async function initializeRectangles() {
         });
         if (!e.target.closest('.rectangle')) {
             rectangles.forEach(r => {
-                r.classList.remove('hide-month'); // 显示所有伪元素
-                r.classList.remove('active'); // 移除 "active" 状态
+                r.classList.remove('hide-month'); 
+                r.classList.remove('active'); 
             });
     
             isRectangleClicked = false;
@@ -504,5 +504,5 @@ async function initializeRectangles() {
     
 }
 
-// Initialize the rectangles
+ 
 initializeRectangles();

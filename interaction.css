@@ -1,6 +1,6 @@
 body {
     padding: 100px;
-    flex-direction: column; /* 垂直排列标题和图表 */
+    flex-direction: column;  
     align-items: center;
     height: 400px;
     margin: 0px;
@@ -15,10 +15,10 @@ main, header, footer {
 }
 
 .h1 {
-    margin-top: 30px; /* 设置标题下方的间距 */
+    margin-top: 30px;  
     margin-bottom: 20px;
-    font-size: 24px; /* 根据需要调整字体大小 */
-    text-align: center; /* 居中标题 */
+    font-size: 24px;  
+    text-align: center;  
     font-weight: bold;
 }
 
@@ -27,84 +27,84 @@ main, header, footer {
     display: flex;
     justify-content: center;
     position: relative;
-    flex-grow: 1; /* 占据剩余空间 */
-    padding-top: 10px; /* 图表顶部的间距 */
+    flex-grow: 1;  
+    padding-top: 10px;  
 }
 
-/* 坐标轴样式 */
+ 
 .axis {
     position: relative;
-    height: 400px; /* 高度与矩形一致 */
-    width: 40px; /* 坐标轴宽度 */
+    height: 400px;  
+    width: 40px;  
     margin-right: -40px;
     margin-bottom: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* 坐标标签均匀分布 */
-    align-items: flex-start; /* 标签靠左对齐 */
-    border-left: 1px solid black; /* 竖线 */
+    justify-content: space-between;  
+    align-items: flex-start;  
+    border-left: 1px solid black;  
 }
 
 .axis-title {
     position: absolute;
-    top: -20px; /* 标题距离坐标轴的顶部 */
+    top: -20px;  
     left: -34px;
     transform: translateX(-50%);
-    font-size: 12px; /* 标题字体大小 */
+    font-size: 12px;  
     font-weight: regular;
     font-family: 'Times New Roman', Times, serif;
     color: black;
     text-align: center;
 }
 
-/* 坐标轴标签样式 */
+ 
 .axis .label {
     position: absolute;
-    display: flex; /* 使用 flexbox 让标签与横线对齐 */
-    justify-content: flex-end; /* 横线与标签对齐 */
+    display: flex;  
+    justify-content: flex-end;  
     align-items: center;
     font-size: 10px;
     margin-bottom: -6px;
     font-family: 'Times New Roman', Times, serif;
     color: black;
-    width: 60px; /* 标签和横线占据的总宽度 */
-    left: -55px; /* 标签移动到左侧 */
+    width: 60px;  
+    left: -55px;  
 }
 
-/* 标签的小横线 */
+ 
 .axis .label::after {
-    content: ''; /* 伪元素 */
-    width: 5px; /* 横线长度 */
-    height: 1px; /* 横线宽度 */
-    background-color: black; /* 横线颜色 */
+    content: '';  
+    width: 5px;  
+    height: 1px;  
+    background-color: black;  
     display: block;
-    margin-left: 5px; /* 横线与标签文字的间距 */
-    z-index: 100; /* 确保点在内容之上 */
+    margin-left: 5px;  
+    z-index: 100;  
 }
 
-/* 标签位置 */
+ 
 .axis .label-0 {
-    bottom: 0%; /* 0位置 */
+    bottom: 0%;  
 }
 
 .axis .label-5000 {
-    bottom: 20%; /* 5000位置 */
+    bottom: 20%;  
 }
 
 .axis .label-10000 {
-    bottom: 40%; /* 5000位置 */
+    bottom: 40%;  
 }
 
 .axis .label-15000 {
-    bottom: 60%; /* 15000位置 */
+    bottom: 60%;  
 }
 
 .axis .label-20000 {
-    bottom: 80%; /* 20000位置 */
+    bottom: 80%;   
 }
 
 .axis .label-25000 {
-    bottom: 100%; /* 25000位置 */
+    bottom: 100%;   
 }
 
 
@@ -121,9 +121,9 @@ main, header, footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* 确保饼图不溢出 */
-    --dot-bottom: 10px; /* 默认伪元素距离底部的高度 */
-    --month: ''; /* 自定义属性，用于设置月份 */
+    overflow: hidden;   
+    --dot-bottom: 10px;   
+    --month: '';   
     overflow: visible;
 }
 
@@ -133,15 +133,15 @@ main, header, footer {
     width: 10px;
     height: 10px;
     background-color: black;
-    border-radius: 50%; /* 圆形 */
+    border-radius: 50%;   
     transform: translateX(-50%);
-    bottom: var(--dot-bottom); /* 使用自定义属性设置距离 */
+    bottom: var(--dot-bottom);   
     left: 50%;
-    z-index: 1; /* 确保点在内容之上 */
+    z-index: 1;   
 }
 
 .rectangle::before {
-    content: attr(data-month); /* 从属性 `data-month` 中获取内容 */
+    content: attr(data-month);   
     position: absolute;
     bottom: -15px;
     transform: translateX(-50%, 10px);
@@ -149,7 +149,7 @@ main, header, footer {
     color: black;
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
-    z-index: 100; /* 确保点在内容之上 */
+    z-index: 100;   
     visibility: visible;
 }
 
@@ -159,8 +159,8 @@ main, header, footer {
 }
 
 .rectangle svg {
-    position: relative; /* 确保饼图在布局中可见 */
-    z-index: 2; /* 提高 z-index，避免被覆盖 */
-    pointer-events: none; /* 防止饼图阻挡点击事件 */
+    position: relative;   
+    z-index: 2;   
+    pointer-events: none;   
     background-color: none;
 }

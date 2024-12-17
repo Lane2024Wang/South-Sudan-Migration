@@ -35,7 +35,7 @@
             const reasonTypes = Array.from({ length: 10 }, (_, i) => `${i + 1}_lmt_no`);
 
             chartIds.forEach((chartId, index) => {
-                // Create container and canvas
+ 
                 const container = document.createElement('div');
                 container.className = 'container';
                 const canvas = document.createElement('canvas');
@@ -43,12 +43,12 @@
                 container.appendChild(canvas);
                 chartContainer.appendChild(container);
 
-                // Filter data for the current chart
+ 
                 const filteredData = data.filter(d => d.Reason_type === reasonTypes[index]);
                 const labels = filteredData.map(d => d.Reason);
                 const values = filteredData.map(d => parseFloat(d.percent));
 
-                // Create chart
+ 
                 new Chart(canvas.getContext('2d'), {
                     type: 'pie',
                     data: {

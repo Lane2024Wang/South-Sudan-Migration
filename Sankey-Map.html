@@ -15,13 +15,13 @@
 
 anychart.onDocumentReady(function () {
   
-  // add data
+ 
   const data = [
 
   
 
 
-           //states within south sudan 
+ 
           {from: "Jonglei ", to: "Refugees", value: 243989},
           {from: "Jonglei ", to: "Returnees", value: 19227},
           {from: "Jonglei ", to: "IDP", value: 243989},
@@ -64,7 +64,7 @@ anychart.onDocumentReady(function () {
           {from: "Northen Bahr el Ghazal", to: "IDP", value: 64893},
 
 
-          //capital cities
+ 
 
           {from: "Bor", to:  "Refugees", value: 2448480},
           {from: "Bor", to: "Returnees", value: 38403},
@@ -103,27 +103,15 @@ anychart.onDocumentReady(function () {
           {from: "Aweil", to: "Returnees", value: 59586},
           {from: "Aweil", to: "IDP", value: 32023},
 
-           //types of population groups 
-          
-          
-
-           //gender 
-           
-          
-
-
-          //types of population groups 
-         
-
         ];
-  // create a sankey diagram instance
+ 
   let chart = anychart.sankey();
   chart.data(data);
 
-  // set the chart's padding
+ 
   chart.padding(20, 40);
 
-  // configure a custom color palette
+ 
   chart.palette([
       "#d8d8d8"
   ]);
@@ -131,12 +119,12 @@ anychart.onDocumentReady(function () {
 
   
 
-  // customize the nodes:
-  // set the width
+ 
+ 
   chart.nodeWidth("40%");
-  // set the padding
+ 
   chart.nodePadding(30);
-  // customize the labels
+ 
   chart.node().normal().labels().fontSize(14);
   chart.node().labels().useHtml(true);
   chart.node().labels().format(
@@ -144,7 +132,7 @@ anychart.onDocumentReady(function () {
     "<span style='font-family: Times New Roman; font-size: 12px; color: #000000;'>{%value}</span>"
   );
 
-  // customize the links
+ 
   chart.flow({
     normal: {
       fill: function () {
@@ -158,7 +146,7 @@ anychart.onDocumentReady(function () {
     }
   });
 
-  // add a title and customize it
+ 
   chart
     .title()
     .enabled(true)
@@ -168,10 +156,10 @@ anychart.onDocumentReady(function () {
       '<br/><span style="color:#00bfa5; font-size: 16px; font-family: Times New Roman;">(South Sudan)</span>'
     );
 
-  // set the chart container id
+ 
   chart.container("container");
 
-  // draw the chart
+ 
   chart.draw();
 
 });
