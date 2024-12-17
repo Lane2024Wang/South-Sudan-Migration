@@ -158,7 +158,7 @@ async function initializeRectangles() {
                     blueRect.style.left = '0';
                     blueRect.style.width = '220px';
                     blueRect.style.height = `${blueHeight}px`;
-                    blueRect.style.backgroundColor = 'blue';
+                    blueRect.style.backgroundColor = 'lightgrey';
 
                     // Add text inside the blue rectangle
                     const blueText = document.createElement('div');
@@ -180,7 +180,7 @@ async function initializeRectangles() {
                     redRect.style.left = '0';
                     redRect.style.width = '220px';
                     redRect.style.height = `${redHeight}px`;
-                    redRect.style.backgroundColor = 'red';
+                    redRect.style.backgroundColor = 'grey';
 
                     // Add text inside the red rectangle
                     const redText = document.createElement('div');
@@ -241,8 +241,8 @@ async function initializeRectangles() {
                     topRow.style.gap = '0px';
 
                     const topShapes = [
-                        { width: `${(lmt.lyPercent / 100) * 200}px`, height: '20px', color: 'lightblue', text: `${lmt.lyPercent}%  Yes` },
-                        { width: `${(lmt.lnPercent / 100) * 200}px`, height: '20px', color: 'lightgreen', text: `${lmt.lnPercent}%  No` }
+                        { width: `${(lmt.lyPercent / 100) * 200}px`, height: '20px', color: '#C1272D', text: `${lmt.lyPercent}%  Yes` },
+                        { width: `${(lmt.lnPercent / 100) * 200}px`, height: '20px', color: 'lightgrey', text: `${lmt.lnPercent}%  No` }
                     ];
 
                     topShapes.forEach(shape => {
@@ -265,7 +265,7 @@ async function initializeRectangles() {
                         rectangle.appendChild(text);
 
                         // **Add hover effect for lightblue rectangle**
-                        if (shape.color === 'lightblue') {
+                        if (shape.color === '#C1272D') {
                             rectangle.addEventListener('mouseenter', () => {
                                 const circle = document.querySelector('.circle');
 
@@ -301,8 +301,8 @@ async function initializeRectangles() {
                             });
                         }
 
-                        // **Add hover effect for lightgreen rectangle**                        
-                        if (shape.color === 'lightgreen') {
+                        // **Add hover effect for lightgrey rectangle**                        
+                        if (shape.color === 'lightgrey') {
                             rectangle.addEventListener('mouseenter', () => {
                                 const circle = document.querySelector('.circle');
 
@@ -363,8 +363,8 @@ async function initializeRectangles() {
                     bottomRow.style.gap = '0px';
 
                     const bottomShapes = [
-                        { width: `${(lmt.ryPercent / 100) * 200}px`, height: '20px', color: 'lightcoral', text: `${lmt.ryPercent}% Yes` },
-                        { width: `${(lmt.rnPercent / 100) * 200}px`, height: '20px', color: 'lightsalmon', text: `${lmt.rnPercent}%  No` }
+                        { width: `${(lmt.ryPercent / 100) * 200}px`, height: '20px', color: '#C1272D', text: `${lmt.ryPercent}% Yes` },
+                        { width: `${(lmt.rnPercent / 100) * 200}px`, height: '20px', color: 'lightgrey', text: `${lmt.rnPercent}%  No` }
                     ];
 
                     bottomShapes.forEach(shape => {
@@ -386,8 +386,8 @@ async function initializeRectangles() {
 
                         rectangle.appendChild(text);
 
-                        // **Add hover effect for lightcoral rectangle**
-                        if (shape.color === 'lightcoral') {
+                        // **Add hover effect for #C1272D rectangle**
+                        if (shape.color === '#C1272D') {
                             rectangle.addEventListener('mouseenter', () => {
                                 const circle = document.querySelector('.circle');
 
@@ -423,8 +423,8 @@ async function initializeRectangles() {
                             });
                         }
 
-                        // **Add hover effect for lightsalmon rectangle**                        
-                        if (shape.color === 'lightsalmon') {
+                        // **Add hover effect for lightgrey rectangle**                        
+                        if (shape.color === 'lightgrey') {
                             rectangle.addEventListener('mouseenter', () => {
                                 const circle = document.querySelector('.circle');
 

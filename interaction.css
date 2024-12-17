@@ -11,7 +11,7 @@ body {
 main, header, footer {
     padding: 20px;
     align-self: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .h1 {
@@ -52,7 +52,7 @@ main, header, footer {
     transform: translateX(-50%);
     font-size: 12px; /* 标题字体大小 */
     font-weight: regular;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     color: black;
     text-align: center;
 }
@@ -65,7 +65,7 @@ main, header, footer {
     align-items: center;
     font-size: 10px;
     margin-bottom: -6px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     color: black;
     width: 60px; /* 标签和横线占据的总宽度 */
     left: -55px; /* 标签移动到左侧 */
@@ -147,7 +147,7 @@ main, header, footer {
     transform: translateX(-50%, 10px);
     font-size: 10px;
     color: black;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     text-align: center;
     z-index: 100; /* 确保点在内容之上 */
     visibility: visible;

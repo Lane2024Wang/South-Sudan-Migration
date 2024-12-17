@@ -5,8 +5,8 @@ body {
     height: 100vh;
     background-color: #ffffff;
     margin: 0px;
-    background-color: #40e0d0;
-    color:darkblue;
+    background-color: #ffffff;
+    color:#000000;
     font-size: medium;
     font-family:'Times New Roman', Times, serif;
 }
@@ -49,10 +49,11 @@ h5{
 }
   
 .hero-image img {
-    width: 1120px;
+    width: 1300px;
     height: auto;
     border-radius: 8px;
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e6e6e6;
 }
 
 .overlay-text {
@@ -78,7 +79,24 @@ h5{
     grid-template-columns: 2fr 1fr;
     gap: 10px;
     justify-content: center;
-    width: 1120px;
+    width: 1300px;
+}
+
+.bilingual-container2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 创建四栏布局 */
+    gap: 20px; /* 栏间距 */
+    max-width: 1000px; /* 容器最大宽度 */
+    margin: auto; /* 居中容器 */
+    justify-content: center;
+}
+
+.bilingual-container3 {
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+    justify-content: center;
+    width: 1300px;
 }
 
 .column {
@@ -87,11 +105,12 @@ h5{
     background-color: rgba(255,255,255,0.5);
     border-radius: 10px; 
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
-    color:darkblue;
+    color:black;
     height:970px;
     overflow-y: scroll;
     scrollbar-width: none; /* 隐藏滚动条（适用于 Firefox） */
     -ms-overflow-style: none; /* 隐藏滚动条（适用于 IE 和 Edge） */
+    border: 1px solid #e6e6e6;
 }
 
 .column::-webkit-scrollbar {
@@ -103,33 +122,38 @@ h5{
     background-color: rgba(255,255,255,0.5);
     border-radius: 10px; 
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
-    color:darkblue;
-    width: 1080px;
+    color:#000000;
+    width: 1260px;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    border: 1px solid #e6e6e6;
 }
 
-
-.iframe-container {
-    text-align: center;
-    width: 800px;
-    height: 1000px;
+.column3 {
+    display: flexbox;
+    padding: 20px;
     background-color: rgba(255,255,255,0.5);
     border-radius: 10px; 
-    padding: 5px;
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
-    color:darkblue;
+    color:#000000;
+    height:570px;
+    overflow-y: scroll;
+    scrollbar-width: none; /* 隐藏滚动条（适用于 Firefox） */
+    -ms-overflow-style: none; /* 隐藏滚动条（适用于 IE 和 Edge） */
+    border: 1px solid #e6e6e6;
+}
+
+.column3::-webkit-scrollbar {
+    display: none; /* 隐藏滚动条（适用于 Chrome 和 Safari） */
 }
 
 
-
-.center-wrapper2{
-    width: 100%;
+.container {
     display: flex;
-    justify-content: center; /* 再次确保水平居中 */
-    align-items: center;
-    overflow: hidden; /* 隐藏滚动条 */
+    justify-content: center;
+    position: relative;
+    flex-grow: 1; /* 占据剩余空间 */
+    padding-top: 10px; /* 图表顶部的间距 */
 }
 
 .container3 {
@@ -146,8 +170,17 @@ h5{
     text-align: center;
 }
 
-
-
+.iframe-container {
+    text-align: center;
+    width: 1000px;
+    height: 1000px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 10px; 
+    padding: 5px;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
+    color:darkblue;
+    border: 1px solid #e6e6e6;
+}
 
 .iframe-container2{
     text-align: center;
@@ -156,12 +189,42 @@ h5{
     background-color: rgba(255,255,255,0.5);
     border-radius: 10px; 
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
-    color:darkblue;
+    color:#000000;
     overflow: hidden; /* 隐藏滚动条 */
+    border: 1px solid #e6e6e6;
 }
 
+.iframe-container3{
+    text-align: center;
+    width: 205px;
+    padding: 20px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 10px; 
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
+    color:#000000;
+    overflow: hidden; /* 隐藏滚动条 */
+    justify-content: center;
+    border: 1px solid #e6e6e6;
+}
 
+.iframe-container4 {
+    text-align: center;
+    width: 1000px;
+    height: 600px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 10px; 
+    padding: 5px;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
+    color:#000000;
+    border: 1px solid #e6e6e6;
+}
 
+.responsive-iframe {
+    width: 100%; /* 设置宽度 */
+    height: 1000px; /* 设置高度 */
+    border: none;
+    border-radius: 8px;
+}
 
 .responsive-iframe2{
     width: 1000px; /* 设置宽度 */
@@ -170,11 +233,11 @@ h5{
     overflow: hidden; /* 隐藏滚动条 */
 }
 
-.responsive-iframe {
-    width: 100%; /* 设置宽度 */
-    height: 1000px; /* 设置高度 */
+.responsive-iframe5 {
+    width: 210px; /* 设置宽度 */
+    height: 2100px; /* 设置高度 */
     border: none;
-    border-radius: 8px;
+    justify-content: center;
 }
 
 .align-heading{
@@ -185,13 +248,7 @@ h5{
     font-weight: bold;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    flex-grow: 1; /* 占据剩余空间 */
-    padding-top: 10px; /* 图表顶部的间距 */
-}
+
 
 .avatar{
     margin: 20px auto;
@@ -220,13 +277,7 @@ h5{
     align-items: center;
 }
 
-.center-wrapper3 {
-    width: 100%;
-    display: flex;
-    justify-content: center; /* 再次确保水平居中 */
-    align-items: center;
-    overflow: hidden; /* 隐藏滚动条 */   
-}
+
 
 .center-wrapper{
     width: 100%;
@@ -236,35 +287,36 @@ h5{
     overflow: hidden; /* 隐藏滚动条 */  
 }
 
+.center-wrapper2{
+    width: 100%;
+    display: flex;
+    justify-content: center; /* 再次确保水平居中 */
+    align-items: center;
+    overflow: hidden; /* 隐藏滚动条 */
+}
+
+.center-wrapper3 {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* 再次确保水平居中 */
+    align-items: center;
+    overflow: hidden; /* 隐藏滚动条 */   
+}
+
+.center-wrapper4 {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* 再次确保水平居中 */
+    align-items: center;
+    overflow: hidden; /* 隐藏滚动条 */   
+}
+
 p {
     margin: 0 0 0 0; /* 设置段落下方的间距 */
     line-height: 1.2; /* 行间距 */
 }
 
-.bilingual-container2 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 创建四栏布局 */
-    gap: 20px; /* 栏间距 */
-    max-width: 1000px; /* 容器最大宽度 */
-    margin: auto; /* 居中容器 */
-    justify-content: center;
-}
 
-.iframe-container5{
-    text-align: center;
-    width: 205px;
-    padding: 20px;
-    background-color: rgba(255,255,255,0.5);
-    border-radius: 10px; 
-    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
-    color:darkblue;
-    overflow: hidden; /* 隐藏滚动条 */
-    justify-content: center;
-}
 
-.responsive-iframe5 {
-    width: 210px; /* 设置宽度 */
-    height: 2100px; /* 设置高度 */
-    border: none;
-    justify-content: center;
-}
+
+

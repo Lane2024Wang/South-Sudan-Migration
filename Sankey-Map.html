@@ -70,7 +70,7 @@ anychart.onDocumentReady(function () {
           {from: "Bor", to: "Returnees", value: 38403},
           {from: "Bor", to: "IDP", value: 98057},
 
-          {from: "Yambio", to: " Refugees", value: 15681},
+          {from: "Yambio", to: "Refugees", value: 15681},
           {from: "Yambio", to: "Returnees", value: 17050},
           {from: "Yambio", to: "IDP", value: 85305},
 
@@ -118,8 +118,6 @@ anychart.onDocumentReady(function () {
         ];
   // create a sankey diagram instance
   let chart = anychart.sankey();
-
-  // load the data to the sankey diagram instance
   chart.data(data);
 
   // set the chart's padding
@@ -127,17 +125,11 @@ anychart.onDocumentReady(function () {
 
   // configure a custom color palette
   chart.palette([
-    "#f5dc50",
-    "#e1a03c",
-    "#c87d5a",
-    "#fff0c8",
-    "#aa96b4",
-    "#6e5a7d",
-    "#e19196",
-    "#419bd2",
-    "#46afaa",
-    "#5a5050"
+      "#d8d8d8"
   ]);
+  
+
+  
 
   // customize the nodes:
   // set the width
@@ -147,10 +139,10 @@ anychart.onDocumentReady(function () {
   // customize the labels
   chart.node().normal().labels().fontSize(14);
   chart.node().labels().useHtml(true);
-  chart
-    .node()
-    .labels()
-    .format("<span style='font-weight:bold'>{%name}</span><br>{%value}");
+  chart.node().labels().format(
+    "<span style='font-family: Times New Roman; font-size: 16px; font-weight: bold;'>{%name}</span><br>" +
+    "<span style='font-family: Times New Roman; font-size: 12px; color: #000000;'>{%value}</span>"
+  );
 
   // customize the links
   chart.flow({
@@ -172,8 +164,8 @@ anychart.onDocumentReady(function () {
     .enabled(true)
     .useHtml(true)
     .text(
-      '<span style = "color: #2b2b2b; font-size:20px;">Migration Patterns</span>' +
-        '<br/><span style="color:#00bfa5; font-size: 16px;">(South Sudan)</span>'
+      '<span style="color: #2b2b2b; font-size:20px; font-weight: bold; font-family: Times New Roman;">Migration Patterns</span>' +
+      '<br/><span style="color:#00bfa5; font-size: 16px; font-family: Times New Roman;">(South Sudan)</span>'
     );
 
   // set the chart container id
@@ -185,7 +177,4 @@ anychart.onDocumentReady(function () {
 });
 </script>
 </body>
-</html>
-    </script>
-  </body>
-</html>
+
